@@ -1,23 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import BackgroundCircle from './BackgroundCircle';
+import Eyes from './Eyes';
+import Mouth from './Mouth';
+import Eyebrows from './Eyebrows';
+import FaceContainer from './FaceContainer';
 
 function App() {
+  const width = 960;
+  const height = 500;
+  const centerX = width/2;
+  const centerY = height/2;
+  const strokeWidth = 15;
+  const eyeOffSetX = 50;
+  const eyeOffSetY = 110;
+  const eyeRadius = 30;
+  const mouthWidth = 20;
+  const mouthRadius = 140;
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <FaceContainer width={width} height={height} centerX={centerX} centerY={centerY}>
+          <BackgroundCircle radius={centerY - strokeWidth} strokeWidth={strokeWidth}/>
+          <Eyes eyeOffSetX={eyeOffSetX} eyeOffSetY = {eyeOffSetY} eyeRadius={eyeRadius}/>
+          <Mouth mouthRadius={mouthRadius} mouthWidth={mouthWidth}/>
+          <Eyebrows mouthRadius={mouthRadius}/>
+        </FaceContainer>
     </div>
   );
 }
